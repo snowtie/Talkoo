@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" />
+  <link rel="stylesheet" href="/static/css/main.css">
+  <style>
+    .material-symbols-outlined {
+      -webkit-user-select: none;
+      user-select: none;
+      color: #666;
+    }
+  </style>
+  <title>Talkoo</title>
+</head>
+<body>
+  <ul class="menu-list fixed bottom-0 left-0">
+    <li>
+      <button id="setting-btn">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+    </li>
+    <li>
+      <button id="dict-btn">
+        <span class="material-symbols-outlined">box</span>
+      </button>
+    </li>
+  </ul>
+  <main class="flex justify-center mt-4">
+    <section class="main-section px-8 py-4">
+      <div class="flex justify-between items-center h-12 mb-4">
+        <h1 class="flex items-center gap-2"><span class="icon material-symbols-outlined">
+          mode_comment
+        </span>번역 에이아이 토쿠</h1>
+        <fieldset class="">
+          <legend class="hidden">답변 결과</legend>
+          <div>
+            <input type="radio" id="modelTrans" name="mode" value="modelTrans" checked>
+            <label for="modelTrans">모델 번역</label>
+          </div>
+          <div>
+            <input type="radio" id="prePostTrans" name="mode" value="prePostTrans">
+            <label for="prePostTrans">사전 번역</label>
+          </div>
+          <!-- <div>
+            <input type="radio" id="geminiReson" name="mode" value="geminiReson">
+            <label for="geminiReson">AI 답변</label>
+          </div> -->
+          <div>
+            <input type="radio" id="geminiIntegra" name="mode" value="geminiIntegra">
+            <label for="geminiIntegra">AI 통합</label>
+          </div>
+        </fieldset>
+      </div>
+      <form onsubmit="handleSubmit(event)">
+        <div class="text-box-container flex mb-4">
+          <div class="source-text-container relative">
+            <div class="text-box-background absolute top-0 h-full"></div>
+            <textarea
+              id="source-text"
+              name="text"
+              placeholder="번역할 문장을 입력하세요."
+              rows="4"
+              class="resize-none"
+              required
+              autofocus
+            ></textarea>
+          </div>
+          <div class="result-text-container relative">
+            <div
+              id="result-text"
+              class="loading relative z-1 text-[#999]"
+            >여기에 결과가 나와요.</div>
+            <ul class="result-btns-container absolute bottom-4 right-6 z-2 h-6">
+              <li>
+                <button type="button" id="show-ai-reply-btn" class="hidden">
+                  <span class="material-symbols-outlined" aria-hidden>info</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit">
+            번역하기
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="setting-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header flex justify-between mb-2">
+        <div class="tab-btns flex gap-4">
+          <button type="button" id="tab-btn-general" class="setting-tab-btn active" data-tab="general">일반 설정</button>
+          <button type="button" id="tab-btn-translation" class="setting-tab-btn" data-tab="translation">번역 설정</button>
+        </div>
+        <button id="close-setting-modal" class="close-btn"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="tab-content-general" class="tab-content"></div>
+        <div id="tab-content-translation" class="tab-content hidden">
+          <div id="dict-panel" class="mt-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dict-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header flex justify-between mb-2">
+        <h2>커스텀 사전</h2>
+        <button id="close-dict-modal" class="close-btn"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="dict-only-panel" class="mt-2">
+          <div id="dict-dropzone" class="dropzone" aria-label="사전 업로드 드롭존">
+            <button type="button" id="dict-drop-btn" class="dropzone-btn">
+              <span class="icon material-symbols-outlined">
+                drive_folder_upload
+              </span>
+              <span class="dropzone-text font-medium">여기에 .tkdic 파일을 드래그하거나 클릭하여 파일 선택</span>
+            </button>
+          </div>
+          <input type="file" id="dict-file" accept=".tkdic" class="hidden" title="사전 파일 선택" />
+          <div id="dict-content">
+            <div class="flex justify-center items-center h-full">
+              <span class="material-symbols-outlined animate-spin">sync</span>
+            </div>
+            <div class="text-[#999]">사전을 불러오고 있어요.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="/static/js/utils.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/settings.js"></script>
+  <script src="/static/js/main.js"></script>
+  
+  <div id="global-tooltip" class="tooltip hidden" role="tooltip" aria-hidden="true">
+    <div class="tooltip-title"></div>
+    <div class="tooltip-content"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+# AI 용어 사전
+# 버전: 1.0
+
+main_fuzzy[85]
+
+# =============================================
+# 모델/개념
+# =============================================
+fuzzy[90]
+word[large language model]
+kor[대규모 언어 모델]
+
+fuzzy[88]
+word[reinforcement learning]
+kor[강화학습]
+
+fuzzy[86]
+word[knowledge distillation]
+kor[지식 증류]
+
+word[transformer]
+kor[트랜스포머]
+
+# =============================================
+# 학습/추론
+# =============================================
+fuzzy[90]
+word[fine tuning]
+kor[미세 조정]
+
+fuzzy[88]
+word[in context learning]
+kor[문맥 내 학습]
+
+fuzzy[86]
+word[zero shot]
+kor[제로샷]
+
+# =============================================
+# 멀티라인 표현
+# =============================================
+fuzzy[92]
+word[chain
+of
+thought]
+kor[사고의 연쇄]
+
+

@@ -1,0 +1,12 @@
+[Info]  2025-09-14 21:35:50 talkoo.py, line:19 모델 설정 : nllb-200-600M.
+[Info]  2025-09-14 21:35:51 talkoo.py, line:29 토크나이저 로드 완료.
+[Info]  2025-09-14 21:35:51 talkoo.py, line:41 CPU 장치 설정 완료!
+[Info]  2025-09-14 21:35:55 talkoo.py, line:45 베이스 모델 로드 완료.
+[Info]  2025-09-14 21:35:55 talkoo.py, line:47 모델의 위치를 설정된 위치(cpu)로 옮겼습니다.
+[Info]  2025-09-14 21:35:55 talkoo.py, line:64 현재 모델 로딩 위치: cpu
+[Info]  2025-09-14 21:37:48 talkoo.py, line:19 모델 설정 : nllb-200-600M.
+[Info]  2025-09-14 21:37:50 talkoo.py, line:29 토크나이저 로드 완료.
+[Info]  2025-09-14 21:37:50 talkoo.py, line:41 CPU 장치 설정 완료!
+[Info]  2025-09-14 21:37:54 talkoo.py, line:45 베이스 모델 로드 완료.
+[Info]  2025-09-14 21:37:55 talkoo.py, line:47 모델의 위치를 설정된 위치(cpu)로 옮겼습니다.
+[Info]  2025-09-14 21:37:55 talkoo.py, line:64 현재 모델 로딩 위치: cpu
